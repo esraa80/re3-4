@@ -4,16 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeLang } from "../../store/slice/language";
 
 const Navbar = () => {
-   const language = useSelector((state) => state.language.language);
-   const dispatch = useDispatch();
-   const toggleLang = () => {
-     const newLang = language === "en" ? "ar" : "en";
-     dispatch(changeLang(newLang));
-     console.log(language);
-   };
+  const language = useSelector((state) => state.language.language);
+  const dispatch = useDispatch();
+
+  const toggleLang = () => {
+    const newLang = language === "en" ? "ar" : "en";
+    dispatch(changeLang(newLang));
+    console.log(language);
+  };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="/movies">
         Movies
       </Link>
@@ -36,7 +37,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <button className="btn btn-info" onClick={toggleLang}>
+            <button className="btn btn-light" onClick={toggleLang}>
               Language: {language}
             </button>
           </li>
